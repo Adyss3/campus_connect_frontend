@@ -1,0 +1,31 @@
+
+> campusconnect@0.0.0 build
+> vite build
+
+[36mvite v6.2.0 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 55 modules transformed.
+\n[31m✗[39m Build failed in 714ms
+[31merror during build:
+[31m[vite:esbuild] Transform failed with 1 error:
+C:/Users/Adyss_3/Documents/GITHUB/campus_connect/campusconnect/src/components/Navbar.jsx:42:0: ERROR: Unexpected "}"[31m
+file: [36mC:/Users/Adyss_3/Documents/GITHUB/campus_connect/campusconnect/src/components/Navbar.jsx:42:0[31m
+[33m
+[33mUnexpected "}"[33m
+40 |          </BsNavbar>
+41 |      );
+42 |  };
+   |  ^
+43 |  
+44 |  export default Navbar;
+[31m
+    at failureErrorWithLog (C:\Users\Adyss_3\Documents\GITHUB\campus_connect\campusconnect\node_modules\esbuild\lib\main.js:1477:15)
+    at C:\Users\Adyss_3\Documents\GITHUB\campus_connect\campusconnect\node_modules\esbuild\lib\main.js:756:50
+    at responseCallbacks.<computed> (C:\Users\Adyss_3\Documents\GITHUB\campus_connect\campusconnect\node_modules\esbuild\lib\main.js:623:9)
+    at handleIncomingPacket (C:\Users\Adyss_3\Documents\GITHUB\campus_connect\campusconnect\node_modules\esbuild\lib\main.js:678:12)
+    at Socket.readFromStdout (C:\Users\Adyss_3\Documents\GITHUB\campus_connect\campusconnect\node_modules\esbuild\lib\main.js:601:7)
+    at Socket.emit (node:events:524:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
