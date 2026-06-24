@@ -40,7 +40,7 @@ const JobDetails = () => {
             </div>
             <div className="d-flex align-items-center" style={{ color: 'var(--text-secondary)' }}>
               <FaMoneyBillWave size={18} className="me-2 text-success" />
-              <span className="fw-medium">Paid Internship</span>
+              <span className="fw-medium">Paid – Competitive Stipend</span>
             </div>
             <div className="d-flex align-items-center" style={{ color: 'var(--text-secondary)' }}>
               <FaCalendarAlt size={18} className="me-2 text-primary" />

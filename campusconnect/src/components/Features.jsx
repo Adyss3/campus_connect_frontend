@@ -27,7 +27,7 @@ const Features = () => {
     ]
 
     return (
-        <section className="py-6 py-lg-8" style={{ backgroundColor: 'var(--bg-secondary)', paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <section id="features" className="py-6 py-lg-8" style={{ backgroundColor: 'var(--bg-secondary)', paddingTop: '6rem', paddingBottom: '6rem' }}>
             <Container>
                 <div className="text-center mb-5 pb-3 fade-up-1">
                     <span className="text-success fw-bold text-uppercase small mb-2 d-block" style={{ letterSpacing: '0.08em' }}>Platform Advantages</span>

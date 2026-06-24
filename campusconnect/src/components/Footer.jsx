@@ -6,7 +6,7 @@ function Footer() {
     const [subscribed, setSubscribed] = useState(false);
     const location = useLocation();
 
-    // Only show newsletter on landing page '/' or events page '/events'
+    // Only show footer on landing page and events page
     const showNewsletter = location.pathname === '/' || location.pathname.startsWith('/events');
 
     if (!showNewsletter) return null;
@@ -18,8 +18,10 @@ function Footer() {
     };
 
     return (
-        <footer className="py-5" style={{ background: 'var(--card-bg)', borderTop: '1px solid var(--border-color)' }}>
-            <Container>
+        <footer style={{ background: 'var(--card-bg)', borderTop: '1px solid var(--border-color)' }}>
+            {/* Newsletter */}
+            <div className="py-5" id="contact">
+                <Container>
                 <Row className="mb-4">
                     <Col md={6}>
                         <h5 style={{ color: 'var(--text-primary)' }}>Subscribe to our newsletter to get updates to our latest collections</h5>
@@ -37,7 +39,13 @@ function Footer() {
                         </Form>
                     </Col>
                 </Row>
-                <Row className="mt-5">
+                </Container>
+            </div>
+
+            {/* About + Links grid */}
+            <div id="about" style={{ borderTop: '1px solid var(--border-color)' }}>
+                <Container className="py-5">
+                <Row className="mt-2">
                     <Col md={3} className="mb-4 mb-md-0">
                         <h6 className="fw-bold" style={{ color: 'var(--text-primary)' }}>SHOP</h6>
                         <ul className="list-unstyled" style={{ color: 'var(--text-secondary)' }}>
@@ -76,7 +84,17 @@ function Footer() {
                         </div>
                     </Col>
                 </Row>
-            </Container>
+                </Container>
+            </div>
+
+            {/* Copyright bar */}
+            <div style={{ background: 'var(--bg-primary)', borderTop: '1px solid var(--border-color)', padding: '1rem 0' }}>
+                <Container>
+                    <p className="text-center mb-0 small" style={{ color: 'var(--text-secondary)' }}>
+                        © {new Date().getFullYear()} Campus Connect · Mountain Top University · All rights reserved.
+                    </p>
+                </Container>
+            </div>
         </footer>
     )
 }

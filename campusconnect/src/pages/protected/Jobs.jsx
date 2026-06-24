@@ -4,12 +4,12 @@ import { FaSearch, FaMapMarkerAlt, FaBriefcase } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const mockJobs = [
-  { id: 1, title: 'Campus Ambassador', company: 'TechNova', location: 'On-Campus', type: 'Part-Time', salary: '$15/hr' },
-  { id: 2, title: 'Software Engineering Intern', company: 'Google', location: 'Remote', type: 'Internship', salary: 'Paid' },
-  { id: 3, title: 'Library Assistant', company: 'State University', location: 'Main Library', type: 'Work-Study', salary: '$12/hr' },
-  { id: 4, title: 'Marketing Coordinator', company: 'Local Agency', location: 'City Center', type: 'Full-Time', salary: '$50k/yr' },
-  { id: 5, title: 'Research Assistant', company: 'Biology Dept.', location: 'Science Block', type: 'Work-Study', salary: '$13/hr' },
-  { id: 6, title: 'UI/UX Design Intern', company: 'Creative Co.', location: 'Remote', type: 'Internship', salary: 'Paid' },
+  { id: 1, title: 'Campus Ambassador', company: 'TechNova', location: 'On-Campus', type: 'Part-Time', salary: '₦25,000/month' },
+  { id: 2, title: 'Software Engineering Intern', company: 'Google', location: 'Remote', type: 'Internship', salary: 'Paid – Competitive' },
+  { id: 3, title: 'Library Assistant', company: 'MTU Main Library', location: 'Main Library', type: 'Work-Study', salary: '₦20,000/month' },
+  { id: 4, title: 'Marketing Coordinator', company: 'Local Agency', location: 'City Center', type: 'Full-Time', salary: '₦800,000/year' },
+  { id: 5, title: 'Research Assistant', company: 'Biology Dept.', location: 'Science Block', type: 'Work-Study', salary: '₦18,000/month' },
+  { id: 6, title: 'UI/UX Design Intern', company: 'Creative Co.', location: 'Remote', type: 'Internship', salary: 'Paid – Stipend' },
 ];
 
 const TYPE_COLORS = {

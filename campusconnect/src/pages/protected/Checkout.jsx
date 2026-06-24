@@ -27,7 +27,7 @@ const Checkout = () => {
   const [done, setDone] = useState(false);
 
   const subtotal = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
-  const tax = 4.50;
+  const tax = 500;
   const total = subtotal + tax;
 
   const handleCheckout = (e) => {
@@ -113,7 +113,7 @@ const Checkout = () => {
               {cart.map((item, i) => (
                 <div key={i} className="d-flex justify-content-between mb-2">
                   <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', maxWidth: '70%' }} className="text-truncate">{item.name} ×{item.qty}</span>
-                  <span style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '0.85rem' }}>${(item.price * item.qty).toFixed(2)}</span>
+                  <span style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '0.85rem' }}>₦{(item.price * item.qty).toLocaleString()}</span>
                 </div>
               ))}
 
@@ -121,16 +121,16 @@ const Checkout = () => {
 
               <div className="d-flex justify-content-between mb-2">
                 <span style={{ color: 'var(--text-secondary)' }}>Subtotal</span>
-                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>${subtotal.toFixed(2)}</span>
+                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>₦{subtotal.toLocaleString()}</span>
               </div>
               <div className="d-flex justify-content-between mb-3">
                 <span style={{ color: 'var(--text-secondary)' }}>Tax &amp; Fees</span>
-                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>${tax.toFixed(2)}</span>
+                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>₦{tax.toLocaleString()}</span>
               </div>
               <hr style={{ borderColor: 'var(--border-color)', opacity: 1, margin: '0 0 16px' }} />
               <div className="d-flex justify-content-between mb-4">
                 <span className="fw-bold fs-5" style={{ color: 'var(--text-primary)' }}>Total</span>
-                <span className="fw-bold fs-5 text-success">${total.toFixed(2)}</span>
+                <span className="fw-bold fs-5 text-success">₦{total.toLocaleString()}</span>
               </div>
 
               <button type="submit" className="btn-premium w-100 justify-content-center py-3 fs-6" disabled={isProcessing}>

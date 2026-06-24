@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Badge, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaHeart, FaRegHeart, FaShoppingCart, FaCheck, FaStore } from 'react-icons/fa';
 import { useAppContext } from '../../context/AppContext';
 
-const ProductCard = ({ id, name, price, oldPrice, category, imageUrl }) => {
-  const { favorites, toggleFavorite } = useAppContext();
+const ProductCard = ({ id, name, price, oldPrice, category, imageUrl, storeId }) => {
+  const { favorites, toggleFavorite, stores, addToCart } = useAppContext();
   const isFavorite = favorites.includes(id);
+  const [added, setAdded] = useState(false);
+
+  // Find store details
+  const store = stores.find(s => s.id === storeId);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart({ id, name, price, oldPrice, category, imageUrl, storeId }, 1, 'M');
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  };
 
   return (
     <div
@@ -33,7 +45,11 @@ const ProductCard = ({ id, name, price, oldPrice, category, imageUrl }) => {
 
       {/* Favorite Button */}
       <button
-        onClick={() => toggleFavorite(id)}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleFavorite(id);
+        }}
         style={{
           position: 'absolute', top: 10, right: 10, zIndex: 2,
           width: 34, height: 34, borderRadius: '50%',
@@ -52,48 +68,67 @@ const ProductCard = ({ id, name, price, oldPrice, category, imageUrl }) => {
       </button>
 
       {/* Product Image */}
-      <div
-        style={{
-          height: 200, background: 'var(--bg-primary)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem',
-        }}
-      >
-        <img
-          src={imageUrl}
-          alt={name}
-          style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
-        />
-      </div>
+      <Link to={`/product/${id}`} style={{ textDecoration: 'none' }}>
+        <div
+          style={{
+            height: 180, background: 'var(--bg-primary)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem',
+          }}
+        >
+          <img
+            src={imageUrl}
+            alt={name}
+            style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+          />
+        </div>
+      </Link>
 
       {/* Details */}
       <div className="d-flex flex-column p-3" style={{ flex: 1 }}>
-        <div style={{ color: 'var(--primary-color)', fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 4 }}>
-          {category}
+        <div className="d-flex justify-content-between align-items-center mb-1">
+          <span style={{ color: 'var(--primary-color)', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            {category}
+          </span>
+          {store && (
+            <Link to={`/store/${store.id}`} className="text-decoration-none small text-success fw-bold d-inline-flex align-items-center" style={{ fontSize: '0.78rem' }}>
+              <FaStore className="me-1" size={10} /> {store.storeName}
+            </Link>
+          )}
         </div>
-        <div className="fw-bold mb-2" style={{ color: 'var(--text-primary)', fontSize: '0.92rem', lineHeight: 1.35, flex: 1 }}>
-          {name}
-        </div>
+        
+        <Link to={`/product/${id}`} className="text-decoration-none" style={{ color: 'inherit' }}>
+          <div className="fw-bold mb-2 text-gradient-hover" style={{ color: 'var(--text-primary)', fontSize: '0.9rem', lineHeight: 1.35, height: '36px', overflow: 'hidden' }}>
+            {name}
+          </div>
+        </Link>
+
         <div className="d-flex align-items-center justify-content-between mt-auto pt-2" style={{ borderTop: '1px solid var(--border-color)' }}>
           <div>
-            <span className="fw-bold text-success me-2" style={{ fontSize: '1.05rem' }}>${price}</span>
+            <span className="fw-bold text-success me-2" style={{ fontSize: '1rem' }}>₦{price.toLocaleString()}</span>
             {oldPrice && (
-              <span style={{ color: 'var(--text-muted)', textDecoration: 'line-through', fontSize: '0.82rem' }}>
-                ${oldPrice}
+              <span style={{ color: 'var(--text-muted)', textDecoration: 'line-through', fontSize: '0.78rem' }}>
+                ₦{oldPrice.toLocaleString()}
               </span>
             )}
           </div>
-          <Link
-            to={`/product/${id}`}
-            className="btn btn-sm fw-bold rounded-pill px-3"
-            style={{
-              background: 'var(--primary-gradient)',
-              color: '#fff',
-              border: 'none',
-              fontSize: '0.8rem',
-            }}
-          >
-            View
-          </Link>
+          <div className="d-flex gap-1">
+            <Link
+              to={`/product/${id}`}
+              className="btn btn-sm btn-light border fw-bold rounded-pill px-2"
+              style={{ fontSize: '0.72rem', color: 'var(--text-primary)' }}
+            >
+              Info
+            </Link>
+            <Button
+              size="sm"
+              variant={added ? "primary" : "success"}
+              className="fw-bold rounded-pill px-3 d-flex align-items-center"
+              style={!added ? { background: 'var(--primary-gradient)', border: 'none', fontSize: '0.72rem' } : { fontSize: '0.72rem' }}
+              onClick={handleAddToCart}
+            >
+              {added ? <FaCheck size={10} /> : <><FaShoppingCart className="me-1" size={10} /> Add</>}
+            </Button>
+          </div>
         </div>
       </div>
     </div>

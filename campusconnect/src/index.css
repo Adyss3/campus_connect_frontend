@@ -418,6 +418,13 @@ label { color: var(--text-primary); }
 .fade-up-3 { animation: fadeUp 0.7s ease-out 0.3s forwards; opacity: 0; }
 .fade-up-4 { animation: fadeUp 0.7s ease-out 0.45s forwards; opacity: 0; }
 
+/* Anchor scroll offset — accounts for fixed navbar height */
+[id='features'],
+[id='about'],
+[id='contact'] {
+  scroll-margin-top: 80px;
+}
+
 /* ============================================
    HERO SECTION
    ============================================ */
@@ -425,7 +432,9 @@ label { color: var(--text-primary); }
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, var(--bg-secondary) 0%, #F0FFF4 100%);
-  padding: 6rem 0 5rem;
+  padding-top: 100px;
+  padding-bottom: 5rem;
+  margin-top: 0;
 }
 [data-theme='dark'] .hero-wrapper {
   background: linear-gradient(180deg, #141820 0%, #1A202C 100%) !important;
@@ -520,7 +529,7 @@ h5 { font-size: clamp(1.1rem, 2vw, 1.35rem) !important; font-weight: 700; }
 
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
-  .hero-wrapper { padding: 4rem 0 3rem; }
+  .hero-wrapper { padding-top: 90px; padding-bottom: 3rem; }
   .hero-blob.green { width: 220px; height: 220px; top: -50px; right: -50px; }
   .hero-blob.blue  { width: 180px; height: 180px; bottom: -20px; left: -50px; }
   

@@ -1,99 +1,246 @@
-// src/components/Trending.jsx
 import React from 'react'
-import { Container, Card } from 'react-bootstrap'
+import { Container, Row, Col, Badge } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import { FaArrowRight, FaStore, FaStar } from 'react-icons/fa'
+
+const trendingItems = [
+  {
+    id: 'p1',
+    title: 'Campus Hoodie - Black',
+    price: '₦12,000',
+    oldPrice: '₦25,000',
+    category: 'Apparel',
+    storeName: 'MTU Gear Store',
+    rating: '4.8',
+    img: 'https://placehold.co/280x200/2F855A/FFFFFF?text=Hoodie'
+  },
+  {
+    id: 'p3',
+    title: 'Fresh Dorm Cookies (Dozen)',
+    price: '₦3,600',
+    oldPrice: '₦4,800',
+    category: 'Food & Snacks',
+    storeName: 'Dorm Delights & Bites',
+    rating: '4.9',
+    img: 'https://placehold.co/280x200/ED8936/FFFFFF?text=Cookies'
+  },
+  {
+    id: 'p5',
+    title: 'Wireless ANC Headphones',
+    price: '₦36,000',
+    oldPrice: '₦44,000',
+    category: 'Electronics',
+    storeName: 'ByteCode Tech',
+    rating: '4.7',
+    img: 'https://placehold.co/280x200/4299E1/FFFFFF?text=Headphones'
+  },
+  {
+    id: 'p6',
+    title: 'USB-C Multi-port Hub',
+    price: '₦10,000',
+    oldPrice: null,
+    category: 'Electronics',
+    storeName: 'ByteCode Tech',
+    rating: '4.6',
+    img: 'https://placehold.co/280x200/805AD5/FFFFFF?text=USB+Hub'
+  }
+]
 
 function Trending() {
-    const products = [
-        {
-            id: 1,
-            title: 'Mathematics Textbook',
-            price: '$45.00',
-            rating: '4.8 (45)',
-            img: 'https://placehold.co/200?text=Math+Book'
-        },
-        {
-            id: 2,
-            title: 'Campus Hoodie',
-            price: '$35.00',
-            rating: '4.8 (41)',
-            img: 'https://placehold.co/200?text=Hoodie'
-        },
-        {
-            id: 3,
-            title: 'Wireless Mouse',
-            price: '$15.00',
-            rating: '3.2 (32)',
-            img: 'https://placehold.co/200?text=Mouse'
-        },
-        {
-            id: 4,
-            title: 'Study Lamp',
-            price: '$20.00',
-            rating: '4.8 (29)',
-            img: 'https://placehold.co/200?text=Lamp'
-        },
-        {
-            id: 5,
-            title: 'Graphic Design Services',
-            price: '$50/hr',
-            rating: '4.9 (55)',
-            img: 'https://placehold.co/200?text=Design+Service'
-        },
-        // add more products as needed...
-    ]
+  return (
+    <section
+      style={{
+        backgroundColor: 'var(--bg-primary)',
+        paddingTop: '6rem',
+        paddingBottom: '6rem',
+        borderTop: '1px solid var(--border-color)'
+      }}
+    >
+      <Container>
+        {/* Section Header */}
+        <div className="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3">
+          <div className="fade-up-1">
+            <span
+              className="text-success fw-bold text-uppercase small mb-2 d-block"
+              style={{ letterSpacing: '0.08em' }}
+            >
+              Campus Marketplace
+            </span>
+            <h2
+              className="display-6 fw-bold mb-2"
+              style={{ color: 'var(--text-primary)' }}
+            >
+              Now Trending on <span className="text-gradient">Campus</span>
+            </h2>
+            <p style={{ color: 'var(--text-secondary)', maxWidth: 500 }} className="mb-0">
+              Real products from verified student entrepreneurs — right at your doorstep.
+            </p>
+          </div>
+          <Link
+            to="/login/student"
+            className="btn-premium d-inline-flex align-items-center gap-2 fade-up-1"
+            style={{ whiteSpace: 'nowrap' }}
+          >
+            Browse Marketplace <FaArrowRight size={13} />
+          </Link>
+        </div>
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 992, // below 992px screen width
-                settings: {
-                    slidesToShow: 3,
-                },
-            },
-            {
-                breakpoint: 768, // below 768px screen width
-                settings: {
-                    slidesToShow: 1,
-                },
-            },
-        ],
-    }
+        {/* Product Grid */}
+        <Row className="g-4">
+          {trendingItems.map((item, idx) => (
+            <Col key={item.id} xs={12} sm={6} lg={3} className={`fade-up-${(idx % 4) + 1}`}>
+              <div
+                className="hover-lift h-100 d-flex flex-column"
+                style={{
+                  background: 'var(--card-bg)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: 18,
+                  overflow: 'hidden',
+                  transition: 'all 0.3s cubic-bezier(0.25,0.8,0.25,1)',
+                  position: 'relative'
+                }}
+              >
+                {/* Sale badge */}
+                {item.oldPrice && (
+                  <Badge
+                    bg="danger"
+                    className="position-absolute rounded-pill px-3 py-2"
+                    style={{ top: 12, left: 12, zIndex: 2, fontSize: '0.72rem' }}
+                  >
+                    Sale
+                  </Badge>
+                )}
 
-    return (
-        <section className="py-5 bg-light">
-            <Container>
-                <h2 className="mb-4 text-center">Now Trending</h2>
-                <Slider {...settings}>
-                    {products.map(product => (
-                        <div key={product.id} className="px-2">
-                            <Card className="mb-4">
-                                <Card.Img variant="top" src={product.img} alt={product.title} />
-                                <Card.Body>
-                                    <Card.Title style={{ fontSize: '1rem' }}>{product.title}</Card.Title>
-                                    <Card.Text className="text-muted">
-                                        {product.rating}
-                                    </Card.Text>
-                                    <p className="fw-bold fs-5 text-success mb-3">{product.price}</p>
-                                    <Link to={`/product/${product.id}`} className="btn btn-success fw-bold w-100">
-                                        View Details
-                                    </Link>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                    ))}
-                </Slider>
-            </Container>
-        </section>
-    )
+                {/* Product Image */}
+                <div
+                  style={{
+                    height: 180,
+                    background: 'var(--bg-secondary)',
+                    overflow: 'hidden'
+                  }}
+                >
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+
+                {/* Details */}
+                <div className="d-flex flex-column p-3" style={{ flex: 1 }}>
+                  {/* Category + Store */}
+                  <div className="d-flex justify-content-between align-items-center mb-2">
+                    <span
+                      style={{
+                        color: 'var(--primary-color)',
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.06em'
+                      }}
+                    >
+                      {item.category}
+                    </span>
+                    <span
+                      className="d-inline-flex align-items-center"
+                      style={{
+                        fontSize: '0.72rem',
+                        color: 'var(--text-secondary)',
+                        fontWeight: 600
+                      }}
+                    >
+                      <FaStore size={9} className="me-1" /> {item.storeName}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <div
+                    className="fw-bold mb-2"
+                    style={{
+                      color: 'var(--text-primary)',
+                      fontSize: '0.9rem',
+                      lineHeight: 1.35,
+                      height: 38,
+                      overflow: 'hidden'
+                    }}
+                  >
+                    {item.title}
+                  </div>
+
+                  {/* Rating */}
+                  <div className="d-flex align-items-center mb-3">
+                    <FaStar size={11} color="#F6AD55" className="me-1" />
+                    <span style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
+                      {item.rating}
+                    </span>
+                  </div>
+
+                  {/* Price + CTA */}
+                  <div
+                    className="d-flex align-items-center justify-content-between mt-auto pt-2"
+                    style={{ borderTop: '1px solid var(--border-color)' }}
+                  >
+                    <div>
+                      <span className="fw-bold text-success me-2" style={{ fontSize: '1rem' }}>
+                        {item.price}
+                      </span>
+                      {item.oldPrice && (
+                        <span
+                          style={{
+                            color: 'var(--text-muted)',
+                            textDecoration: 'line-through',
+                            fontSize: '0.78rem'
+                          }}
+                        >
+                          {item.oldPrice}
+                        </span>
+                      )}
+                    </div>
+                    <Link
+                      to="/login/student"
+                      className="btn btn-sm fw-bold rounded-pill px-3"
+                      style={{
+                        background: 'var(--primary-gradient)',
+                        border: 'none',
+                        color: '#fff',
+                        fontSize: '0.72rem'
+                      }}
+                    >
+                      View
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </Col>
+          ))}
+        </Row>
+
+        {/* Bottom CTA strip */}
+        <div
+          className="mt-5 p-4 rounded-4 text-center"
+          style={{
+            background: 'var(--card-bg)',
+            border: '1px solid var(--border-color)'
+          }}
+        >
+          <p className="mb-3 fw-semibold" style={{ color: 'var(--text-secondary)' }}>
+            🛍️ These are just a few items from our growing marketplace. Sign in to browse everything.
+          </p>
+          <div className="d-flex justify-content-center gap-3 flex-wrap">
+            <Link to="/login/student" className="btn-premium d-inline-flex align-items-center gap-2">
+              Student Login <FaArrowRight size={12} />
+            </Link>
+            <Link
+              to="/login/campus"
+              className="btn-premium-outline d-inline-flex align-items-center gap-2"
+            >
+              Sell on Campus Connect
+            </Link>
+          </div>
+        </div>
+      </Container>
+    </section>
+  )
 }
 
 export default Trending

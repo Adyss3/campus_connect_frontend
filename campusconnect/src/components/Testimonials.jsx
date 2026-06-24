@@ -39,7 +39,7 @@ function Testimonials() {
     ]
 
     return (
-        <section className="py-6 py-lg-8" style={{ backgroundColor: '#F8FAFC', padding: '6rem 0' }}>
+        <section className="py-6 py-lg-8" style={{ backgroundColor: 'var(--bg-primary)', padding: '6rem 0' }}>
             <Container>
                 <div className="mb-5 text-center fade-up-1">
                     <span className="text-success fw-bold text-uppercase tracking-wider small d-block mb-2">Student Voices</span>
@@ -48,13 +48,13 @@ function Testimonials() {
                 <Row className="g-4 mt-3">
                     {testimonials.map((testimonial, i) => (
                         <Col lg={6} key={testimonial.id} className={`fade-up-${(i % 4) + 1}`}>
-                            <div className="glass-card hover-lift p-4 p-md-5 h-100 bg-white border-0 shadow-sm" style={{ borderTop: '4px solid var(--primary-color)' }}>
+                            <div className="glass-card hover-lift p-4 p-md-5 h-100 border-0 shadow-sm" style={{ background: 'var(--card-bg)', borderTop: '4px solid var(--primary-color)' }}>
                                 <div className="text-warning mb-3">
                                     {[...Array(testimonial.rating)].map((_, i) => (
                                         <FaStar key={i} className="me-1" />
                                     ))}
                                 </div>
-                                <p className="fs-5 text-dark mb-4 lh-lg" style={{ fontStyle: 'italic' }}>
+                                <p className="fs-5 mb-4 lh-lg" style={{ fontStyle: 'italic', color: 'var(--text-primary)' }}>
                                     "{testimonial.text}"
                                 </p>
                                 <div className="d-flex align-items-center mt-auto">

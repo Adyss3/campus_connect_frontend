@@ -27,13 +27,31 @@ const Hero = () => {
                             The ultimate hub for students and entrepreneurs. Buy and sell dorm essentials, discover internships, and build your professional network effortlessly.
                         </p>
                         
-                        <div className="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3 fade-up-4">
-                            <Link to="/marketplace" className="btn-premium text-decoration-none d-flex align-items-center justify-content-center">
-                                Start Shopping <FaArrowRight className="ms-2" />
-                            </Link>
-                            <Link to="/signup" className="btn-premium-outline text-decoration-none d-flex align-items-center justify-content-center">
-                                Join Network
-                            </Link>
+                        <div className="row g-4 mt-2 fade-up-4">
+                            <div className="col-12 col-sm-6">
+                                <div className="p-4 rounded-4 h-100 transition-all border d-flex flex-column text-start" style={{ background: 'var(--card-bg)', borderColor: 'var(--border-color)', boxShadow: 'var(--shadow-soft)', transition: 'all 0.3s' }}>
+                                    <div className="fs-3 mb-2">🎓</div>
+                                    <h5 className="fw-bold mb-2" style={{ color: 'var(--text-primary)' }}>Student Access</h5>
+                                    <p className="small text-muted flex-grow-1 mb-4">
+                                        For verified MTU students. Access the campus marketplace, browse events, and search careers.
+                                    </p>
+                                    <Link to="/login/student" className="btn-premium text-decoration-none w-100 justify-content-center py-2">
+                                        Student Portal <FaArrowRight className="ms-2" size={12} />
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="col-12 col-sm-6">
+                                <div className="p-4 rounded-4 h-100 transition-all border d-flex flex-column text-start" style={{ background: 'var(--card-bg)', borderColor: 'var(--border-color)', boxShadow: 'var(--shadow-soft)', transition: 'all 0.3s' }}>
+                                    <div className="fs-3 mb-2">🏢</div>
+                                    <h5 className="fw-bold mb-2" style={{ color: 'var(--text-primary)' }}>Campus Access</h5>
+                                    <p className="small text-muted flex-grow-1 mb-4">
+                                        For staff, student organizations, and vendors. Build a store, post jobs, and publish events.
+                                    </p>
+                                    <Link to="/login/campus" className="btn-premium text-decoration-none w-100 justify-content-center py-2" style={{ background: 'var(--dark-gradient)' }}>
+                                        Campus Portal <FaArrowRight className="ms-2" size={12} />
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                         
                         <div className="mt-5 d-flex align-items-center justify-content-center justify-content-lg-start gap-4 fade-up-4 text-muted small fw-semibold">

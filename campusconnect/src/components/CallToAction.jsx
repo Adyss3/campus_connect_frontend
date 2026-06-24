@@ -21,9 +21,14 @@ function CallToAction() {
                             <p className="lead text-muted mb-5 fade-up-3 mx-auto" style={{ maxWidth: '600px' }}>
                                 Join thousands of students and entrepreneurs already buying, selling, and building careers on Campus Connect.
                             </p>
-                            <Link to="/signup" className="btn-premium btn-lg fs-5 px-5 py-3 shadow-lg fade-up-4 d-inline-flex align-items-center">
-                                Join The Network Now <span className="ms-2">→</span>
-                            </Link>
+                            <div className="d-flex flex-wrap justify-content-center gap-3 fade-up-4">
+                              <Link to="/signup/student" className="btn-premium btn-lg fs-5 px-5 py-3 shadow-lg d-inline-flex align-items-center">
+                                Join as Student <span className="ms-2">→</span>
+                              </Link>
+                              <Link to="/signup/campus" className="d-inline-flex align-items-center btn-lg fs-5 px-5 py-3 rounded-pill fw-bold" style={{ background: 'rgba(255,255,255,0.15)', color: '#fff', border: '2px solid rgba(255,255,255,0.4)', textDecoration: 'none' }}>
+                                Campus Access
+                              </Link>
+                            </div>
                         </Col>
                     </Row>
                 </div>

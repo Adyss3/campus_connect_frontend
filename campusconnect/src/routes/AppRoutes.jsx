@@ -8,9 +8,10 @@ import MainLayout from '../layouts/MainLayout';
 
 // Public Pages
 import Home from '../pages/public/Home';
-import Login from '../pages/public/Login';
-import Signup from '../pages/public/Signup';
-import Welcome from '../pages/public/Welcome';
+import StudentLogin from '../pages/public/StudentLogin';
+import StudentSignup from '../pages/public/StudentSignup';
+import CampusLogin from '../pages/public/CampusLogin';
+import CampusSignup from '../pages/public/CampusSignup';
 
 // Protected Pages
 import Dashboard from '../pages/protected/Dashboard';
@@ -28,17 +29,25 @@ import Profile from '../pages/protected/Profile';
 import Settings from '../pages/protected/Settings';
 import Verification from '../pages/protected/Verification';
 
+// Store Pages
+import StoreDirectory from '../pages/protected/StoreDirectory';
+import StoreProfile from '../pages/protected/StoreProfile';
+import CreateStore from '../pages/protected/CreateStore';
+import EditStore from '../pages/protected/EditStore';
+import StoreDashboard from '../pages/protected/StoreDashboard';
+
 const AppRoutes = () => {
   return (
     <Routes>
-      {/* Public Pages Without Specific Layout */}
+      {/* Public Home Page */}
       <Route path="/" element={<Home />} />
       
-      {/* Auth Layout for login/signup/welcome */}
+      {/* Auth Layout for login/signup */}
       <Route element={<AuthLayout />}>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/login/student" element={<StudentLogin />} />
+        <Route path="/signup/student" element={<StudentSignup />} />
+        <Route path="/login/campus" element={<CampusLogin />} />
+        <Route path="/signup/campus" element={<CampusSignup />} />
       </Route>
 
       {/* Main Layout for protected pages */}
@@ -58,6 +67,13 @@ const AppRoutes = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/verification" element={<Verification />} />
+          
+          {/* Store System Pages */}
+          <Route path="/stores" element={<StoreDirectory />} />
+          <Route path="/store/:id" element={<StoreProfile />} />
+          <Route path="/store/create" element={<CreateStore />} />
+          <Route path="/store/edit" element={<EditStore />} />
+          <Route path="/store/dashboard" element={<StoreDashboard />} />
         </Route>
       </Route>
     </Routes>

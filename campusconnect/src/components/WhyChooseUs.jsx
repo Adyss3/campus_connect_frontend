@@ -4,7 +4,7 @@ import { FaShieldAlt, FaBriefcase, FaComments } from 'react-icons/fa'
 
 function WhyChooseUs() {
     return (
-        <section className="py-6 py-lg-8 bg-white position-relative overflow-hidden" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <section className="py-6 py-lg-8 position-relative overflow-hidden" style={{ backgroundColor: 'var(--bg-secondary)', paddingTop: '6rem', paddingBottom: '6rem' }}>
             <div className="position-absolute bg-success rounded-circle opacity-10" style={{ width: '600px', height: '600px', right: '-20%', top: '-10%', filter: 'blur(80px)', zIndex: 0 }}></div>
             <Container className="position-relative z-1">
                 <Row className="align-items-center">
@@ -15,7 +15,7 @@ function WhyChooseUs() {
                             We aren't just another generic marketplace. Campus Connect bridges the gap between students, faculties, and aspiring entrepreneurs in a highly localized, secure, and supportive environment.
                         </p>
                         
-                        <div className="d-flex align-items-center mb-4 bg-light p-3 rounded-4 border">
+                        <div className="d-flex align-items-center mb-4 p-3 rounded-4 border" style={{ background: 'var(--card-bg)', borderColor: 'var(--border-color)' }}>
                             <div className="bg-white p-3 rounded-circle shadow-sm me-3 text-warning fs-3 lh-1">⭐</div>
                             <div>
                                 <h4 className="fw-bold mb-0">4.9/5 Rating</h4>

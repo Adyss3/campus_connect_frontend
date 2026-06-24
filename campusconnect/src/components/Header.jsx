@@ -47,13 +47,13 @@ const Header = () => {
                     <Offcanvas.Body>
                         <Nav className="fw-semibold mx-lg-4 gap-2 gap-lg-4 mt-2 mt-lg-0 fs-6">
                             <Nav.Link as={Link} to="/" onClick={handleClose} className="hover-lift px-lg-0 py-2" style={{ color: 'var(--text-primary)' }}>Home</Nav.Link>
-                            <Nav.Link as={Link} to="/marketplace" onClick={handleClose} className="hover-lift px-lg-0 py-2" style={{ color: 'var(--text-primary)' }}>Marketplace</Nav.Link>
-                            <Nav.Link as={Link} to="/jobs" onClick={handleClose} className="hover-lift px-lg-0 py-2" style={{ color: 'var(--text-primary)' }}>Jobs</Nav.Link>
-                            <Nav.Link as={Link} to="/events" onClick={handleClose} className="hover-lift px-lg-0 py-2" style={{ color: 'var(--text-primary)' }}>Events</Nav.Link>
+                            <Nav.Link href="#features" onClick={handleClose} className="hover-lift px-lg-0 py-2" style={{ color: 'var(--text-primary)' }}>Features</Nav.Link>
+                            <Nav.Link href="#about" onClick={handleClose} className="hover-lift px-lg-0 py-2" style={{ color: 'var(--text-primary)' }}>About</Nav.Link>
+                            <Nav.Link href="#contact" onClick={handleClose} className="hover-lift px-lg-0 py-2" style={{ color: 'var(--text-primary)' }}>Contact</Nav.Link>
                         </Nav>
-                        <Nav className="d-flex flex-row flex-lg-row ms-lg-auto mt-4 mt-lg-0 gap-3 pt-4 pt-lg-0 border-top border-lg-0" style={{ borderColor: 'var(--border-color) !important' }}>
-                            <Nav.Link as={Link} to="/login" onClick={handleClose} className="btn btn-premium-outline flex-fill text-center d-flex align-items-center justify-content-center py-2 m-0" style={{color: 'var(--primary-color)', border: '2px solid var(--primary-color)'}}>Sign In</Nav.Link>
-                            <Nav.Link as={Link} to="/signup" onClick={handleClose} className="btn btn-premium flex-fill text-center d-flex align-items-center justify-content-center shadow-sm py-2 m-0" style={{background: 'var(--primary-gradient)', color: '#fff'}}>Get Started</Nav.Link>
+                        <Nav className="d-flex flex-column flex-lg-row ms-lg-auto mt-4 mt-lg-0 gap-2 pt-4 pt-lg-0 border-top border-lg-0" style={{ borderColor: 'var(--border-color) !important' }}>
+                            <Nav.Link as={Link} to="/login/student" onClick={handleClose} className="btn btn-premium-outline px-3 py-2 text-center d-flex align-items-center justify-content-center m-0" style={{color: 'var(--primary-color)', border: '2px solid var(--primary-color)', fontSize: '0.85rem'}}>Student Access</Nav.Link>
+                            <Nav.Link as={Link} to="/login/campus" onClick={handleClose} className="btn btn-premium px-3 py-2 text-center d-flex align-items-center justify-content-center shadow-sm m-0" style={{background: 'var(--dark-gradient)', color: '#fff', border: 'none', fontSize: '0.85rem'}}>Campus Access</Nav.Link>
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>

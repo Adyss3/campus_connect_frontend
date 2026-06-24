@@ -9,7 +9,7 @@ const Cart = () => {
   const { cart, removeFromCart, updateCartQty, clearCart } = useAppContext();
 
   const subtotal = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
-  const tax = 4.50;
+  const tax = 500;
   const total = subtotal + tax;
 
   if (cart.length === 0) {
@@ -55,7 +55,7 @@ const Cart = () => {
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div className="fw-semibold" style={{ color: 'var(--text-primary)', fontSize: '0.95rem', lineHeight: 1.3 }}>{item.name}</div>
                   {item.size && <div style={{ color: 'var(--text-secondary)', fontSize: '0.82rem', marginTop: 2 }}>Size: {item.size}</div>}
-                  <div className="fw-bold text-success mt-1">${item.price.toFixed(2)}</div>
+                  <div className="fw-bold text-success mt-1">₦{item.price.toLocaleString()}</div>
                 </div>
                 <div className="d-flex align-items-center gap-2">
                   <div
@@ -95,16 +95,16 @@ const Cart = () => {
 
             <div className="d-flex justify-content-between mb-2">
               <span style={{ color: 'var(--text-secondary)' }}>Subtotal</span>
-              <span className="fw-semibold" style={{ color: 'var(--text-primary)' }}>${subtotal.toFixed(2)}</span>
+              <span className="fw-semibold" style={{ color: 'var(--text-primary)' }}>₦{subtotal.toLocaleString()}</span>
             </div>
             <div className="d-flex justify-content-between mb-3">
               <span style={{ color: 'var(--text-secondary)' }}>Taxes & Fees</span>
-              <span className="fw-semibold" style={{ color: 'var(--text-primary)' }}>${tax.toFixed(2)}</span>
+              <span className="fw-semibold" style={{ color: 'var(--text-primary)' }}>₦{tax.toLocaleString()}</span>
             </div>
             <hr style={{ borderColor: 'var(--border-color)', opacity: 1 }} />
             <div className="d-flex justify-content-between mb-4">
               <span className="fw-bold fs-5" style={{ color: 'var(--text-primary)' }}>Total</span>
-              <span className="fw-bold fs-5 text-success">${total.toFixed(2)}</span>
+              <span className="fw-bold fs-5 text-success">₦{total.toLocaleString()}</span>
             </div>
 
             <button

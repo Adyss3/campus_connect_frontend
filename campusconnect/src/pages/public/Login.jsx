@@ -1,90 +1,49 @@
-import React, { useState } from 'react';
-import { Form, Button, Alert, Spinner } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
-import { FaEnvelope, FaLock } from 'react-icons/fa';
+import React from 'react';
+import { Card, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { FaGraduationCap, FaBuilding } from 'react-icons/fa';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const { login, isLoading } = useAuth();
-  const navigate = useNavigate();
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setError('');
-    if (!email || !password) {
-      setError('Please fill out all fields.');
-      return;
-    }
-    try {
-      await login(email, password);
-      navigate('/dashboard');
-    } catch (err) {
-      setError('Failed to login. Check your credentials.');
-    }
-  };
-
-  const inputStyle = {
-    background: 'var(--input-bg)',
-    color: 'var(--input-text)',
-    borderColor: 'var(--border-color)',
-    paddingTop: '11px',
-    paddingBottom: '11px',
-  };
-
   return (
     <>
       <div className="text-center mb-4">
-        <h2 className="fw-bold" style={{ color: 'var(--text-primary)' }}>Welcome Back</h2>
-        <p style={{ color: 'var(--text-secondary)' }}>Log in to your Campus Connect account</p>
+        <h2 className="fw-bold" style={{ color: 'var(--text-primary)' }}>Welcome to Campus Connect</h2>
+        <p style={{ color: 'var(--text-secondary)' }}>Choose your login portal to continue</p>
       </div>
 
-      {error && <Alert variant="danger" className="rounded-3">{error}</Alert>}
+      <Row className="g-3">
+        <Col xs={12}>
+          <Link to="/login/student" className="text-decoration-none">
+            <Card className="hover-lift border-0 shadow-sm" style={{ cursor: 'pointer', background: 'var(--card-bg)' }}>
+              <Card.Body className="d-flex align-items-center p-4">
+                <div className="bg-success text-white rounded-circle p-3 me-3">
+                  <FaGraduationCap size={24} />
+                </div>
+                <div>
+                  <h5 className="fw-bold mb-1" style={{ color: 'var(--text-primary)' }}>Student Access</h5>
+                  <p className="text-muted mb-0 small">Log in with your @mtu.edu.ng email</p>
+                </div>
+              </Card.Body>
+            </Card>
+          </Link>
+        </Col>
 
-      <Form onSubmit={handleLogin}>
-        <Form.Group className="mb-3" controlId="loginEmail">
-          <Form.Label style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
-            <FaEnvelope className="me-2 text-success" size={14} />University Email
-          </Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="student@university.edu"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            style={inputStyle}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-4" controlId="loginPassword">
-          <Form.Label className="d-flex justify-content-between align-items-center" style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
-            <span><FaLock className="me-2 text-success" size={13} />Password</span>
-            <Link to="/forgot-password" className="text-success text-decoration-none" style={{ fontSize: '0.82rem', fontWeight: 500 }}>
-              Forgot Password?
-            </Link>
-          </Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            style={inputStyle}
-          />
-        </Form.Group>
-
-        <Button
-          variant="success"
-          type="submit"
-          className="w-100 fw-bold py-2 rounded-pill"
-          disabled={isLoading}
-          style={{ fontSize: '1rem' }}
-        >
-          {isLoading ? <Spinner animation="border" size="sm" /> : 'Log In'}
-        </Button>
-      </Form>
+        <Col xs={12}>
+          <Link to="/login/campus" className="text-decoration-none">
+            <Card className="hover-lift border-0 shadow-sm" style={{ cursor: 'pointer', background: 'var(--card-bg)' }}>
+              <Card.Body className="d-flex align-items-center p-4">
+                <div className="bg-dark text-white rounded-circle p-3 me-3" style={{ background: 'var(--dark-gradient) !important' }}>
+                  <FaBuilding size={24} />
+                </div>
+                <div>
+                  <h5 className="fw-bold mb-1" style={{ color: 'var(--text-primary)' }}>Campus Access</h5>
+                  <p className="text-muted mb-0 small">Staff, vendors, and student organizations</p>
+                </div>
+              </Card.Body>
+            </Card>
+          </Link>
+        </Col>
+      </Row>
 
       <div className="text-center mt-4 pt-3" style={{ borderTop: '1px solid var(--border-color)' }}>
         <span style={{ color: 'var(--text-secondary)' }}>Don't have an account? </span>
