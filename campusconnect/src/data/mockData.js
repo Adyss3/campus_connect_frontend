@@ -87,8 +87,8 @@ export const seedStores = [
     ownerId: "u2",
     storeName: "MTU Gear Store",
     description: "The official supplier of custom hoodies, varsity jackets, and campus accessories for students.",
-    logo: "https://placehold.co/150x150?text=Gear+Store",
-    banner: "https://placehold.co/800x250?text=MTU+Gear+Store+Banner",
+    logo: "/images/stores/mtu Gear store.jpg",
+    banner: "/images/stores/mtu Gear store.jpg",
     category: "Apparel",
     contactDetails: { email: "samsales@campus.com", phone: "+2348012345678" },
     socialLinks: { instagram: "mtu_gear", twitter: "mtu_gear", website: "mtugear.shop" },
@@ -100,8 +100,8 @@ export const seedStores = [
     ownerId: "u3",
     storeName: "Dorm Delights & Bites",
     description: "Providing quick snacks, home-made cookies, and fresh waffles right to your dorm room.",
-    logo: "https://placehold.co/150x150?text=Dorm+Delights",
-    banner: "https://placehold.co/800x250?text=Dorm+Delights+Banner",
+    logo: "/images/stores/Dorm delights & bites.jpg",
+    banner: "/images/stores/Dorm delights & bites.jpg",
     category: "Food & Snacks",
     contactDetails: { email: "alexactive@mtu.edu.ng", phone: "+2348098765432" },
     socialLinks: { instagram: "dorm_bites", twitter: "dorm_bites", website: "dormbites.com" },
@@ -113,8 +113,8 @@ export const seedStores = [
     ownerId: "u2",
     storeName: "ByteCode Tech",
     description: "Premium tech accessories, laptop stands, chargers, and headphones for engineering students.",
-    logo: "https://placehold.co/150x150?text=ByteCode+Tech",
-    banner: "https://placehold.co/800x250?text=ByteCode+Tech+Banner",
+    logo: "/images/stores/bytecode tech.jpg",
+    banner: "/images/stores/bytecode tech.jpg",
     category: "Electronics",
     contactDetails: { email: "tech@bytecode.com", phone: "+2348088888888" },
     socialLinks: { instagram: "bytecode_tech", twitter: "bytecode_tech", website: "bytecode.com" },
@@ -132,7 +132,7 @@ export const seedProducts = [
     price: 12000,
     oldPrice: 25000,
     category: "Apparel",
-    imageUrl: "https://placehold.co/300x220?text=Hoodie",
+    imageUrl: "/images/products/Hoodie.jpg",
     description: "Show your university pride with this ultra-comfortable, durable hoodie. Made with 100% organic cotton, featuring a classic fit and cozy fleece lining.",
     createdAt: new Date().toISOString()
   },
@@ -143,7 +143,7 @@ export const seedProducts = [
     name: "Vintage Varsity Jacket",
     price: 22000,
     category: "Apparel",
-    imageUrl: "https://placehold.co/300x220?text=Jacket",
+    imageUrl: "/images/products/varsity jacket.jpg",
     description: "Retro MTU varsity jacket with high-quality embroidery and premium leather sleeves. Perfect for fall campus walks.",
     createdAt: new Date().toISOString()
   },
@@ -155,7 +155,7 @@ export const seedProducts = [
     price: 3600,
     oldPrice: 4800,
     category: "Food & Snacks",
-    imageUrl: "https://placehold.co/300x220?text=Cookies",
+    imageUrl: "/images/products/cookies.jpg",
     description: "Baked daily and delivered warm. Assortment of chocolate chip, oatmeal raisin, and double chocolate.",
     createdAt: new Date().toISOString()
   },
@@ -166,7 +166,7 @@ export const seedProducts = [
     name: "Home-made Waffles (Pack of 4)",
     price: 4200,
     category: "Food & Snacks",
-    imageUrl: "https://placehold.co/300x220?text=Waffles",
+    imageUrl: "/images/products/waffles.jpg",
     description: "Fluffy Belgian waffles ready to pop in your toaster. Includes maple syrup and butter packages.",
     createdAt: new Date().toISOString()
   },
@@ -178,7 +178,7 @@ export const seedProducts = [
     price: 36000,
     oldPrice: 44000,
     category: "Electronics",
-    imageUrl: "https://placehold.co/300x220?text=Headphones",
+    imageUrl: "/images/products/anc haeadphones.jpg",
     description: "Active noise-canceling headphones with 40-hour battery life. Block out dorm distractions and focus on your studies.",
     createdAt: new Date().toISOString()
   },
@@ -189,7 +189,7 @@ export const seedProducts = [
     name: "USB-C Multi-port Hub",
     price: 10000,
     category: "Electronics",
-    imageUrl: "https://placehold.co/300x220?text=Hub",
+    imageUrl: "/images/products/usb c multiport hub.jpg",
     description: "7-in-1 USB-C hub with HDMI, 3 USB-A ports, SD card slots, and Power Delivery passthrough.",
     createdAt: new Date().toISOString()
   }
@@ -249,7 +249,7 @@ export const seedEvents = [
     date: "Apr 20, 2026",
     time: "10:00 AM - 4:00 PM",
     location: "Main Student Union",
-    img: "https://placehold.co/600x300?text=Career+Fair",
+    img: "/images/events/spring career fair.jpg",
     description: "Meet representatives from over 50 leading companies. Bring your resume and dress to impress! Networking booths available.",
     organizedBy: "u4"
   },
@@ -259,7 +259,7 @@ export const seedEvents = [
     date: "May 15, 2026",
     time: "8:00 AM onwards",
     location: "Engineering Building",
-    img: "https://placehold.co/600x300?text=Hackathon",
+    img: "/images/events/Hackathon.png",
     description: "A 48-hour challenge to design solutions for local community issues. Free food, stickers, and up to ₦800,000 in cash prizes!",
     organizedBy: "u5"
   },
@@ -269,7 +269,7 @@ export const seedEvents = [
     date: "Apr 25, 2026",
     time: "2:00 PM",
     location: "Lecture Hall 3",
-    img: "https://placehold.co/600x300?text=Lecture",
+    img: "/images/events/Lecture.jpg",
     description: "Dr. Dele hosts a talk on how machine learning technologies are revolutionizing modern pathology and clinical diagnostic workflows.",
     organizedBy: "u4"
   }
