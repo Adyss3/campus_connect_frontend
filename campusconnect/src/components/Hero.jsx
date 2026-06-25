@@ -65,7 +65,7 @@ const Hero = () => {
                         <div className="position-relative" style={{ animation: 'float 8s ease-in-out infinite' }}>
                             <div className="position-absolute w-100 h-100 bg-success rounded-circle opacity-10 blur-xl" style={{ filter: 'blur(40px)', transform: 'scale(0.9)', zIndex: 0 }}></div>
                             <img
-                                src="https://placehold.co/600x500?text=University+Students+Collaborating"
+                                src="/images/university students collabing.png"
                                 alt="University Students studying and working"
                                 className="img-fluid rounded-5 shadow-lg position-relative z-3 border border-4 border-white"
                                 style={{ transform: 'rotate(2deg)' }}

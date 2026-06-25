@@ -9,6 +9,20 @@ export const useAppContext = () => useContext(AppContext);
 export const AppProvider = ({ children }) => {
   const { registerStoreForUser } = useAuth();
 
+  // Force refresh localStorage data with updated images
+  useEffect(() => {
+    const currentVersion = '2.0'; // Update this when we change mockData
+    const storedVersion = localStorage.getItem('cc_data_version');
+    
+    if (storedVersion !== currentVersion) {
+      // Data will be refreshed by AuthContext, so we just need to reload from seeds
+      localStorage.setItem('cc_stores', JSON.stringify(seedStores));
+      localStorage.setItem('cc_products', JSON.stringify(seedProducts));
+      localStorage.setItem('cc_jobs', JSON.stringify(seedJobs));
+      localStorage.setItem('cc_events', JSON.stringify(seedEvents));
+    }
+  }, []);
+
   // Load datasets from localStorage or seeds
   const [stores, setStores] = useState(() => {
     const saved = localStorage.getItem('cc_stores');
@@ -91,8 +105,8 @@ export const AppProvider = ({ children }) => {
       ownerId,
       storeName: storeData.storeName,
       description: storeData.description || '',
-      logo: storeData.logo || 'https://placehold.co/150x150?text=' + encodeURIComponent(storeData.storeName),
-      banner: storeData.banner || 'https://placehold.co/800x250?text=' + encodeURIComponent(storeData.storeName),
+      logo: storeData.logo || '/images/stores/default-store.jpg',
+      banner: storeData.banner || '/images/stores/default-banner.jpg',
       category: storeData.category || 'General',
       contactDetails: {
         email: storeData.email || '',
@@ -169,7 +183,7 @@ export const AppProvider = ({ children }) => {
       price: parseFloat(productData.price) || 0,
       oldPrice: productData.oldPrice ? parseFloat(productData.oldPrice) : undefined,
       description: productData.description || '',
-      imageUrl: productData.imageUrl || 'https://placehold.co/300x220?text=Product',
+      imageUrl: productData.imageUrl || '/images/products/default-product.jpg',
       category: productData.category || 'General',
       createdAt: new Date().toISOString()
     };
@@ -227,7 +241,7 @@ export const AppProvider = ({ children }) => {
       date: eventData.date,
       time: eventData.time,
       location: eventData.location,
-      img: eventData.img || 'https://placehold.co/600x300?text=Event',
+      img: eventData.img || '/images/events/default-event.jpg',
       description: eventData.description,
       organizedBy: organizedByUserId,
       rsvps: []

@@ -12,7 +12,7 @@ const trendingItems = [
     category: 'Apparel',
     storeName: 'MTU Gear Store',
     rating: '4.8',
-    img: 'https://placehold.co/280x200/2F855A/FFFFFF?text=Hoodie'
+    img: '/images/products/Hoodie.jpg'
   },
   {
     id: 'p3',
@@ -22,7 +22,7 @@ const trendingItems = [
     category: 'Food & Snacks',
     storeName: 'Dorm Delights & Bites',
     rating: '4.9',
-    img: 'https://placehold.co/280x200/ED8936/FFFFFF?text=Cookies'
+    img: '/images/products/cookies.jpg'
   },
   {
     id: 'p5',
@@ -32,7 +32,7 @@ const trendingItems = [
     category: 'Electronics',
     storeName: 'ByteCode Tech',
     rating: '4.7',
-    img: 'https://placehold.co/280x200/4299E1/FFFFFF?text=Headphones'
+    img: '/images/products/anc haeadphones.jpg'
   },
   {
     id: 'p6',
@@ -42,7 +42,7 @@ const trendingItems = [
     category: 'Electronics',
     storeName: 'ByteCode Tech',
     rating: '4.6',
-    img: 'https://placehold.co/280x200/805AD5/FFFFFF?text=USB+Hub'
+    img: '/images/products/usb c multiport hub.jpg'
   }
 ]
 

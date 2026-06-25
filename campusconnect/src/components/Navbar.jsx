@@ -30,7 +30,7 @@ const Navbar = () => {
     handleClose();
     setDropdownOpen(false);
     logout();
-    navigate('/login/student');
+    navigate('/');
   };
 
   const handleDropdownLink = () => {

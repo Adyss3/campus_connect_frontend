@@ -10,7 +10,7 @@ function Testimonials() {
             role: 'Engineering Student',
             rating: 5,
             text: 'I found the absolute perfect part-time job through this platform. The verified university status makes every interaction feel incredibly safe and legitimate. Highly recommended!',
-            img: 'https://placehold.co/100?text=Leo'
+            img: 'https://ui-avatars.com/api/?name=Leo&background=2F855A&color=fff&size=100'
         },
         {
             id: 2,
@@ -18,7 +18,7 @@ function Testimonials() {
             role: 'Business Major',
             rating: 5,
             text: 'Selling my old textbooks was a breeze! I connected with a freshman right on campus and made the sale the very next day. Campus Connect is a lifesaver.',
-            img: 'https://placehold.co/100?text=Sar'
+            img: 'https://ui-avatars.com/api/?name=Sarah&background=E53E3E&color=fff&size=100'
         },
         {
             id: 3,
@@ -26,7 +26,7 @@ function Testimonials() {
             role: 'Student Entrepreneur',
             rating: 4,
             text: 'I launched my graphic design service here. The real-time chat helps me negotiate quotes instantly with clients studying in the exact same library!',
-            img: 'https://placehold.co/100?text=Dav'
+            img: 'https://ui-avatars.com/api/?name=David&background=3182CE&color=fff&size=100'
         },
         {
             id: 4,
@@ -34,7 +34,7 @@ function Testimonials() {
             role: 'Campus Tutor',
             rating: 5,
             text: 'Finding tutoring clients has historically been hard, but the local ecosystem built right into Campus Connect changed everything.',
-            img: 'https://placehold.co/100?text=Emm'
+            img: 'https://ui-avatars.com/api/?name=Emma&background=805AD5&color=fff&size=100'
         }
     ]
 

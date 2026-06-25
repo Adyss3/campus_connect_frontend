@@ -30,7 +30,7 @@ const initialPosts = [
     likes: 45,
     liked: false,
     comments: [],
-    image: 'https://placehold.co/600x280/2F855A/FFFFFF?text=Spring+Festival+2026',
+    image: '/images/events/spring career fair.jpg',
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const initialPosts = [
     likes: 28,
     liked: false,
     comments: [],
-    image: 'https://placehold.co/600x280/4299E1/FFFFFF?text=Wireless+Headphones+Drop',
+    image: '/images/products/anc haeadphones.jpg',
   },
   {
     id: 4,

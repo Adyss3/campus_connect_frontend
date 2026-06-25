@@ -6,8 +6,21 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  // Initialize users in localStorage if not present
+  // Force refresh localStorage data with updated images
   useEffect(() => {
+    const currentVersion = '2.0'; // Update this when we change mockData
+    const storedVersion = localStorage.getItem('cc_data_version');
+    
+    if (storedVersion !== currentVersion) {
+      // Clear old data and reseed with updated mockData
+      localStorage.removeItem('cc_users');
+      localStorage.removeItem('cc_stores');
+      localStorage.removeItem('cc_products');
+      localStorage.removeItem('cc_jobs');
+      localStorage.removeItem('cc_events');
+      localStorage.setItem('cc_data_version', currentVersion);
+    }
+    
     if (!localStorage.getItem('cc_users')) {
       localStorage.setItem('cc_users', JSON.stringify(seedUsers));
     }

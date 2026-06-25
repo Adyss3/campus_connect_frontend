@@ -4,9 +4,9 @@ import { FaCalendarAlt, FaMapMarkerAlt, FaCheck, FaPlus } from 'react-icons/fa';
 import { useAppContext } from '../../context/AppContext';
 
 const mockEvents = [
-  { id: 1, title: 'Spring Career Fair', date: 'Apr 20, 2026', time: '10:00 AM - 4:00 PM', location: 'Main Student Union', img: 'https://placehold.co/600x300?text=Career+Fair' },
-  { id: 2, title: 'Hackathon 2026', date: 'May 15, 2026', time: '8:00 AM', location: 'Engineering Building', img: 'https://placehold.co/600x300?text=Hackathon' },
-  { id: 3, title: 'Guest Lecture: AI in Healthcare', date: 'April 25, 2026', time: '2:00 PM', location: 'Hall 3', img: 'https://placehold.co/600x300?text=Lecture' },
+  { id: 1, title: 'Spring Career Fair', date: 'Apr 20, 2026', time: '10:00 AM - 4:00 PM', location: 'Main Student Union', img: '/images/events/spring career fair.jpg' },
+  { id: 2, title: 'Hackathon 2026', date: 'May 15, 2026', time: '8:00 AM', location: 'Engineering Building', img: '/images/events/Hackathon.png' },
+  { id: 3, title: 'Guest Lecture: AI in Healthcare', date: 'April 25, 2026', time: '2:00 PM', location: 'Hall 3', img: '/images/events/Lecture.jpg' },
 ];
 
 const Events = () => {

@@ -8,6 +8,8 @@ import MainLayout from '../layouts/MainLayout';
 
 // Public Pages
 import Home from '../pages/public/Home';
+import Login from '../pages/public/Login';
+import Signup from '../pages/public/Signup';
 import StudentLogin from '../pages/public/StudentLogin';
 import StudentSignup from '../pages/public/StudentSignup';
 import CampusLogin from '../pages/public/CampusLogin';
@@ -44,6 +46,8 @@ const AppRoutes = () => {
       
       {/* Auth Layout for login/signup */}
       <Route element={<AuthLayout />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/login/student" element={<StudentLogin />} />
         <Route path="/signup/student" element={<StudentSignup />} />
         <Route path="/login/campus" element={<CampusLogin />} />
